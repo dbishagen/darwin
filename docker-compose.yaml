@@ -1,0 +1,23 @@
+version: '3.2'
+services:
+
+  mongo:
+    image: dbishagen/darwin-dataset:mongo-4.0-se
+    restart: unless-stopped
+    ports:
+      - 127.0.0.1:27017:27017
+    container_name: mongo_db
+    hostname: mongo_db
+
+  darwin:
+    image: dbishagen/darwin:1.0
+    restart: unless-stopped
+    depends_on:
+      - mongo
+    environment:
+      DARWIN_STORAGE: "mongo docker"
+      DARWIN_ENTITY_MANAGER: "mongo docker"
+    ports:
+      - 127.0.0.1:8080:8080
+    container_name: darwin
+    hostname: darwin

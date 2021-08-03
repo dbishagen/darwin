@@ -1,0 +1,10 @@
+{
+  "host": "mongo_db",
+  "port": 27017,
+  "database": "GamingVideo",
+  "authDb": "admin",
+  "authUsername": "darwin",
+  "authPassword": "darwin_test",
+  "entityTypes": ["Player","Mission","Place"],
+  "timestampIdentifier": "ts"
+}
